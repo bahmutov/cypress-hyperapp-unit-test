@@ -1,5 +1,6 @@
 import { h } from 'hyperapp'
 import { TodoList } from '../../components/todo-list'
+import { toggle } from '../../actions'
 import { mount } from '../..'
 
 /* eslint-env mocha */
@@ -27,11 +28,9 @@ describe('TodoList', () => {
       }
     ]
   }
+  // reuse toggle action in the test - why not?
   const actions = {
-    // TODO implement toggle
-    toggle: () => state => {
-      throw new Error('Toggle not implemented yet')
-    }
+    toggle
   }
   const view = (state, actions) =>
     // renders TodoList component, passing
@@ -71,7 +70,7 @@ describe('TodoList', () => {
       .should('not.be.checked')
   })
 
-  it.skip('completes todo by clicking', () => {
+  it('completes todo by clicking', () => {
     cy.contains('.todo-list .todo', 'Profit').click()
     cy
       .contains('.todo-list .todo', 'Profit')

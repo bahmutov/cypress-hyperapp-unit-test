@@ -70,6 +70,7 @@ Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have ful
 
 * [src/index.js](src/index.js) the main file implementing `mount`
 * [components](components) different Hyper components for testing
+* [actions](actions) pure actions functions used from components and tests
 * [cypress/integration](cypress/integration) example spec files showing  various test situations
 
 See video of tests running on CI on the project's [Cypress Dashboard][cypress dashboard url]
@@ -80,6 +81,11 @@ See video of tests running on CI on the project's [Cypress Dashboard][cypress da
 - [components without and with actions](cypress/integration/hello-world-component-spec.js)
 - [single TodoItem component](cypress/integration/todo-item-spec.js)
 - [entire TodoList component](cypress/integration/todo-list-spec.js)
+
+## Package scripts
+
+* `npm run cy:open` starts Cypress GUI, which is great for TDD mode
+* `npm run cy:run` runs Cypress headlessly, testing all specs. Same command [runs on CI](.travis.yml) with additional `--record` argument to record the run and send to the [Cypress Dashboard][cypress dashboard url]
 
 ### Small print
 

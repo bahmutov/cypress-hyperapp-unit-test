@@ -3,9 +3,11 @@ import { h } from 'hyperapp'
 // TodoItem component from
 // https://github.com/hyperapp/hyperapp/blob/master/docs/concepts/components.md
 export const TodoItem = ({ id, value, done, toggle }) => {
+  done = Boolean(done)
+
   const onclick = e =>
     toggle({
-      value: done,
+      done: !done,
       id
     })
 

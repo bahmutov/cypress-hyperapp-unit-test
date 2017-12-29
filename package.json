@@ -58,7 +58,8 @@
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "cypress run",
-    "e2e": "cypress open",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "unit": "mocha src/*-spec.js",
     "unused-deps": "dependency-check --unused --no-dev .",
     "semantic-release": "semantic-action pre && npm publish && semantic-action post"
