@@ -12,6 +12,9 @@ node_js:
 before_install:
   - npm install cypress hyperapp
 script:
+  # build full apps
+  - npm run build
+  # test everything
   - npm test -- --record
 after_success:
   - npm run semantic-release || true

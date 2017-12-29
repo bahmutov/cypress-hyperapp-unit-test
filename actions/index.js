@@ -9,7 +9,7 @@ export const toggle = ({ id, done }) => state => {
   // as much as you want
   return {
     todos: state.todos.map(
-      t => (t.id === id ? Cypress._.merge({}, t, { done }) : t)
+      t => (t.id === id ? Object.assign({}, t, { done }) : t)
     )
   }
 }
