@@ -13,7 +13,7 @@
 
 * What is this? This package allows you to use [Cypress](https://www.cypress.io/) test runner to unit test your Hyperapp components with zero effort. The component runs in the real browser with full power of Cypress E2E test runner: [live GUI, powerful API, screen recording, historical DOM snapshots, CI support, cross-platform](https://www.cypress.io/features/).
 
-* The line between unit testing a component that renders into a DOM, makes HTTP requests, uses browser API and end-to-end test for a complete web application is becoming very blurry in my opinion. Hope this little bridge between HyperApp and Cypress test runner proves it. See examples below - some of them are testing individual components, some full apps. But the tests look and run _very much alike_.
+* The line between unit testing a component that renders into a DOM, makes HTTP requests, uses browser API and an end-to-end test for a complete web application is becoming very blurry in my opinion. Hope this little bridge between HyperApp and Cypress test runner proves it. See examples below - some of them are testing individual components, some full apps. But the tests look and run _very much alike_.
 
 ## Install
 
@@ -31,8 +31,11 @@ npm install cypress hyperapp
 
 ## API
 
+You can import this module from your own tests
+
 ```js
 import { mount } from 'cypress-hyperapp-unit-test'
+// import or code state, action and view
 beforeEach(() => {
   mount(state, actions, view)
 })
@@ -41,7 +44,7 @@ beforeEach(() => {
 
 ## Use
 
-In your Cypress spec files (this code is in [cypress/integration/hello-world-spec.js](cypress/integration/hello-world-spec.js)) mount the application, just like you would "normally".
+In your Cypress spec files (the example below is from file [cypress/integration/hello-world-spec.js](cypress/integration/hello-world-spec.js)) mount the application, just like you would "normally".
 
 ```js
 import { mount } from 'cypress-hyperapp-unit-test'
@@ -64,7 +67,7 @@ describe('Hello World', () => {
 })
 ```
 
-Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have full end-to-end test run but with your component! Why waste time on unit testing if you could _see_ the result, _inspect_ the DOM, _investigate_ how it works using time-travelling debugger?
+Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have full end-to-end test run but with your component! Why waste time on unit testing inside synthetic DOM's blackbox if you could _see_ the result, _inspect_ the DOM, _investigate_ how it works using time-travelling debugger?
 
 ![Hello World shows greeting](images/hello-world.png)
 
@@ -73,7 +76,7 @@ Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have ful
 * [src/index.js](src/index.js) the main file implementing `mount`
 * [components](components) different Hyper components for testing
 * [actions](actions) pure actions functions used from components and tests
-* [apps](apps) one or more complete bundled applications
+* [apps](apps) one or more complete bundled applications (build them using `npm run build`)
 * [cypress/integration](cypress/integration) example spec files showing various test situations
 
 See video of tests running on CI on the project's [Cypress Dashboard][cypress dashboard url]
