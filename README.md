@@ -8,6 +8,10 @@
 [![semantic-release][semantic-image] ][semantic-url]
 [![js-standard-style][standard-image]][standard-url]
 
+## TLDR
+
+* What is this? This package allows you to use [Cypress](https://www.cypress.io/) test runner to unit test your Hyperapp components with zero effort. The component runs in the real browser with full power of Cypress E2E test runner: [live GUI, full API, screen recording, historical DOM snapshots, CI support, cross-platform](https://www.cypress.io/features/).
+
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 6 or above.

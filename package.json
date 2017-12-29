@@ -1,7 +1,7 @@
 {
   "name": "cypress-hyperapp-unit-test",
   "description": "Unit test HyperApp components using Cypress",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": "https://github.com/bahmutov/cypress-hyperapp-unit-test/issues",
   "config": {
@@ -60,7 +60,8 @@
     "test": "cypress run",
     "e2e": "cypress open",
     "unit": "mocha src/*-spec.js",
-    "unused-deps": "dependency-check --unused --no-dev ."
+    "unused-deps": "dependency-check --unused --no-dev .",
+    "semantic-release": "semantic-release"
   },
   "release": {
     "analyzeCommits": "simple-commit-message"
@@ -76,7 +77,8 @@
     "nsp": "3.1.0",
     "pre-git": "3.17.0",
     "prettier-standard": "8.0.0",
-    "standard": "10.0.3"
+    "standard": "10.0.3",
+    "semantic-release": "11.0.2"
   },
   "peerDependencies": {
     "cypress": "1.4.1",
