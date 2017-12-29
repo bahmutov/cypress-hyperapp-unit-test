@@ -1,6 +1,6 @@
 {
   "name": "cypress-hyperapp-unit-test",
-  "description": "Unit test HyperApp components using Cypress",
+  "description": "Unit test Hyperapp components using Cypress",
   "version": "0.0.0-development",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": "https://github.com/bahmutov/cypress-hyperapp-unit-test/issues",
