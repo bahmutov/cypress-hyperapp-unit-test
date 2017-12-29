@@ -1,6 +1,6 @@
 # cypress-hyperapp-unit-test
 
-> Unit test HyperApp components using Cypress
+> Unit test [HyperApp](https://hyperapp.js.org/) components using [Cypress](https://www.cypress.io/)
 
 [![NPM][npm-icon] ][npm-url]
 
@@ -13,10 +13,59 @@
 Requires [Node](https://nodejs.org/en/) version 6 or above.
 
 ```sh
-npm install --save cypress-hyperapp-unit-test
+npm install --save-dev cypress-hyperapp-unit-test
+```
+
+also requires peer dependencies
+
+```sh
+npm install cypress hyperapp
+```
+
+## API
+
+```js
+import { mount } from 'cypress-hyperapp-unit-test'
+beforeEach(() => {
+  mount(state, actions, view)
+})
+// you get fresh mini-app running in each test
 ```
 
 ## Use
+
+In your Cypress spec files (this code is in [cypress/integration/hello-world-spec.js](cypress/integration/hello-world-spec.js)) mount the application, just like you would "normally".
+
+```js
+import { mount } from 'cypress-hyperapp-unit-test'
+import { h } from 'hyperapp'
+// view function we are testing
+const view = (state, actions) =>
+  h('div', { class: 'greeting' }, 'Hello, World'
+describe('Hello World', () => {
+  beforeEach(() => {
+    const state = {}
+    const actions = {}
+    // no state or actions for this simple example
+    mount(state, actions, view)
+  })
+  it('shows greeting', () => {
+    // use any Cypress command - we have
+    // real HyperApp application for testing
+    cy.contains('.greeting', 'Hello, World')
+  })
+})
+```
+
+Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have full end-to-end test run but with your component! Why waste time on unit testing if you could _see_ the result, _inspect_ the DOM, _investigate_ how it works using time-travelling debugger?
+
+![Hello World shows greeting](images/hello-world.png)
+
+## Repo organization
+
+* [src/index.js](src/index.js) the main file implementing `mount`
+* [components](components) different Hyper components for testing
+* [cypress/integration](cypress/integration) example spec files showing various test situations
 
 ### Small print
 

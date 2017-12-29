@@ -8,8 +8,6 @@
     "pre-git": {
       "commit-msg": "simple",
       "pre-commit": [
-        "npm prune",
-        "npm run deps",
         "npm test",
         "git add src/*.js",
         "npm run ban"
@@ -60,7 +58,8 @@
     "pretty": "prettier-standard 'src/*.js'",
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
-    "test": "npm run unit",
+    "test": "cypress run",
+    "e2e": "cypress open",
     "unit": "mocha src/*-spec.js",
     "unused-deps": "dependency-check --unused --no-dev ."
   },
@@ -83,5 +82,12 @@
   "peerDependencies": {
     "cypress": "1.4.1",
     "hyperapp": "1.0.0"
+  },
+  "standard": {
+    "globals": [
+      "Cypress",
+      "cy",
+      "expect"
+    ]
   }
 }
