@@ -21,7 +21,25 @@ export const mount = (state, actions, view) => {
     .its('hyperapp.app')
     .then(app => {
       const el = document.getElementById('app')
-      Cypress.main = app(state, actions, view, el)
+      const main = app(state, actions, view, el)
+
+      // wrap every hyper action with `cy.then` to
+      // make sure it goes through the Cypress command queue
+      // allows things like the example below to just work
+      //   Cypress.main.setText('foo')
+      //   cy.contains('foo')
+      //   Cypress.main.setText('bar')
+      //   cy.contains('bar')
+      Cypress.main = {}
+      Object.keys(main).forEach(name => {
+        const action = main[name]
+        Cypress.main[name] = function queueAction () {
+          // should we log arguments?
+          cy.log(`action: ${name}`)
+          return cy.then(() => action.apply(null, arguments))
+        }
+      })
+
       return Cypress.main
     })
 

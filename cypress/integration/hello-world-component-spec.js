@@ -44,11 +44,6 @@ describe('HelloYou', () => {
     Cypress.main.setName('Great Person!')
     // mount function adds utility method to get the
     // current state object
-    expect(Cypress.main._getState().name).to.equal('Great Person!')
-  })
-
-  it('mutates state', () => {
-    Cypress.main.setName('Great Person!')
-    expect(state).to.not.equal(Cypress.main._getState())
+    Cypress.main._getState().its('name').should('equal', 'Great Person!')
   })
 })

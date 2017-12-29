@@ -27,10 +27,7 @@ describe('TodoItem', () => {
   })
 
   it('is unchecked for unfinished item', () => {
-    cy
-      .get('.toggle')
-      .should('have.length', 1)
-      .should('not.be.checked')
+    cy.get('.toggle').should('have.length', 1).should('not.be.checked')
   })
 
   it('toggles item on click', () => {
@@ -39,27 +36,29 @@ describe('TodoItem', () => {
   })
 
   it('changes state on click', () => {
-    cy
-      .get('.todo')
-      .click()
-      .then(() => {
-        expect(Cypress.main._getState()).to.deep.equal({
-          done: true,
-          value: 'Try HyperApp'
-        })
-      })
+    cy.get('.todo').click()
+    Cypress.main._getState().should('deep.equal', {
+      done: true,
+      value: 'Try HyperApp'
+    })
+
+    // click again
+    cy.get('.todo').click()
+    Cypress.main._getState().should('deep.equal', {
+      done: false,
+      value: 'Try HyperApp'
+    })
   })
 
   it('changes state by invoking action', () => {
     // the component's actions are referenced in Cypress.main
     Cypress.main.toggle()
     cy.get('.toggle').should('be.checked')
-    // the action happens synchronously
-    // but Cypress commands are queued
-    // thus toggle again only after previous cy.get... has passed
-    cy.then(() => {
-      Cypress.main.toggle()
-    })
+    // because actions inside Cypress.main are queued into the
+    // Cypress command queue first we can just call them
+    // the toggle below will happen AFTER the toggle check above
+    // has already passed
+    Cypress.main.toggle()
     cy.get('.toggle').should('not.be.checked')
   })
 })

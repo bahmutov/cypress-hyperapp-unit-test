@@ -49,8 +49,14 @@ beforeEach(() => {
 
 ```js
 Cypress.main.setName('Joe')
-expect(Cypress.main._getState().name).to.equal('Joe')
+Cypress.main._getState().its('name').should('equal', 'Joe')
+Cypress.main.setAge(37)
+Cypress.main._getState().should('deep.equal', {
+  name: 'Joe',
+  age: 37
+})
 ```
+Note: the `Cypress.main` wraps returned Hyperapp actions with `cy.then` to queue the calls through the Cypress command queue. Thus the above code looks synchronous, but in reality there could be DOM updates, network calls, etc, and it still works.
 
 ## Use
 
