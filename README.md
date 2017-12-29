@@ -44,7 +44,7 @@ beforeEach(() => {
 
 ### Extras
 
-* Mounted component's actions object is attached to the global `Cypress` variable.
+* Mounted component's actions object is attached to the global `Cypress.main` variable. The name `main` was picked because that's what Hyperapp uses in its docs `const main = app(state, ...)`
 * The `mount` function adds an action `_getState` to the `actions` object, if there is not one already present. This allows you to get the current state of the component for inspection.
 
 ```js
