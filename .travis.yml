@@ -14,7 +14,7 @@ before_install:
 script:
   - npm test -- --record
 after_success:
-  - npm run semantic-release
+  - npm run semantic-release || true
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
