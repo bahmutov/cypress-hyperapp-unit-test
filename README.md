@@ -67,7 +67,7 @@ import { mount } from 'cypress-hyperapp-unit-test'
 import { h } from 'hyperapp'
 // view function we are testing
 const view = (state, actions) =>
-  h('div', { class: 'greeting' }, 'Hello, World'
+  h('div', { class: 'greeting' }, 'Hello, World')
 describe('Hello World', () => {
   beforeEach(() => {
     const state = {}
