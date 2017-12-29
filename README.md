@@ -65,10 +65,13 @@ Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have ful
 
 * [src/index.js](src/index.js) the main file implementing `mount`
 * [components](components) different Hyper components for testing
-* [cypress/integration](cypress/integration) example spec files showing various test situations
-  - [simple view function without any actions](cypress/integration/hello-world-spec.js)
-  - [components without and with actions](cypress/integration/hello-world-component-spec.js)
-  - [single TodoItem component](cypress/integrtion/todo-item-spec.js)
+* [cypress/integration](cypress/integration) example spec files showing  various test situations
+
+## Examples
+
+- [simple view function without any actions](cypress/integration/hello-world-spec.js)
+- [components without and with actions](cypress/integration/hello-world-component-spec.js)
+- [single TodoItem component](cypress/integrtion/todo-item-spec.js)
 
 ### Small print
 
