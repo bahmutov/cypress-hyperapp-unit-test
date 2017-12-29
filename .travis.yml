@@ -7,8 +7,12 @@ notifications:
   email: true
 node_js:
   - '8'
-before_script:
+# install peer dependencies we need before installing
+# main dependencies so all get cached
+before_install:
   - npm install cypress hyperapp
+script:
+  - npm test -- --record
 after_success:
   - npm run semantic-release
 branches:
