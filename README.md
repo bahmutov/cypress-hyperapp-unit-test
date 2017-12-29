@@ -95,6 +95,16 @@ See video of tests running on CI on the project's [Cypress Dashboard][cypress da
 * `npm run cy:open` starts Cypress GUI, which is great for TDD mode
 * `npm run cy:run` runs Cypress headlessly, testing all specs. Same command [runs on CI](.travis.yml) with additional `--record` argument to record the run and send to the [Cypress Dashboard][cypress dashboard url]
 
+## Extras
+
+* Mounted component's actions object is attached to the global `Cypress` variable.
+* The `mount` function adds an action `_getState` to the `actions` object, if there is not one already present. This allows you to get the current state of the component for inspection.
+
+```js
+Cypress.main.setName('Joe')
+expect(Cypress.main._getState().name).to.equal('Joe')
+```
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2017
