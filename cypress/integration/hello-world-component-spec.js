@@ -1,7 +1,9 @@
 import { HelloWorld, HelloYou } from '../../components/hello-world'
 import { mount } from '../..'
 
+/* eslint-env mocha */
 describe('HelloWorld', () => {
+  // component without any actions or internal state
   beforeEach(() => {
     const state = {}
     const actions = {}
@@ -14,13 +16,14 @@ describe('HelloWorld', () => {
 })
 
 describe('HelloYou', () => {
+  // component with state and an action
   const state = {
-    name: 'person',
+    name: 'person'
   }
 
   beforeEach(() => {
     const actions = {
-      setName: name => state => ({ name }),
+      setName: name => state => ({ name })
     }
     mount(state, actions, HelloYou)
   })
