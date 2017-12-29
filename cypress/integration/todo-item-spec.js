@@ -2,21 +2,22 @@ import { h } from 'hyperapp'
 import { TodoItem } from '../../components/todo-item'
 import { mount } from '../..'
 
+/* eslint-env mocha */
 describe('TodoItem', () => {
   beforeEach(() => {
     const state = {
       value: 'Try HyperApp',
-      done: false,
+      done: false
     }
     const actions = {
-      toggle: () => state => ({ done: !state.done }),
+      toggle: () => state => ({ done: !state.done })
     }
     const view = (state, actions) =>
       h(TodoItem, {
         id: 1,
         value: state.value,
         done: state.done,
-        toggle: actions.toggle,
+        toggle: actions.toggle
       })
     mount(state, actions, view)
   })
@@ -48,37 +49,8 @@ describe('TodoItem', () => {
       .then(() => {
         expect(Cypress.main._getState()).to.deep.equal({
           done: true,
-          value: 'Try HyperApp',
+          value: 'Try HyperApp'
         })
       })
-  })
-})
-
-describe.skip('TodoItem list', () => {
-  // initial state
-  const state = {
-    todos: [
-      {
-        id: 1,
-        value: 'Try HyperApp',
-        done: false,
-      },
-    ],
-  }
-  const actions = {}
-  const view = (state, actions) =>
-    h('div', {}, [
-      h('h1', {}, 'Todo'),
-      state.todos.map(({ id, value, done }) =>
-        h(TodoItem, { id, value, done, toggle: actions.toggle })
-      ),
-    ])
-
-  beforeEach(() => {
-    mount(state, actions, view)
-  })
-
-  it('shows todo', () => {
-    cy.contains('Try HyperApp')
   })
 })

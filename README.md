@@ -78,7 +78,8 @@ See video of tests running on CI on the project's [Cypress Dashboard][cypress da
 
 - [simple view function without any actions](cypress/integration/hello-world-spec.js)
 - [components without and with actions](cypress/integration/hello-world-component-spec.js)
-- [single TodoItem component](cypress/integrtion/todo-item-spec.js)
+- [single TodoItem component](cypress/integration/todo-item-spec.js)
+- [entire TodoList component](cypress/integration/todo-list-spec.js)
 
 ### Small print
 
