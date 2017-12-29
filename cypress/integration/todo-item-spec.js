@@ -34,17 +34,13 @@ describe('TodoItem', () => {
   })
 
   it('toggles item on click', () => {
-    cy
-      .get('.todo')
-      .first()
-      .click()
+    cy.get('.todo').click()
     cy.get('.toggle').should('be.checked')
   })
 
   it('changes state on click', () => {
     cy
       .get('.todo')
-      .first()
       .click()
       .then(() => {
         expect(Cypress.main._getState()).to.deep.equal({
@@ -52,5 +48,18 @@ describe('TodoItem', () => {
           value: 'Try HyperApp'
         })
       })
+  })
+
+  it('changes state by invoking action', () => {
+    // the component's actions are referenced in Cypress.main
+    Cypress.main.toggle()
+    cy.get('.toggle').should('be.checked')
+    // the action happens synchronously
+    // but Cypress commands are queued
+    // thus toggle again only after previous cy.get... has passed
+    cy.then(() => {
+      Cypress.main.toggle()
+    })
+    cy.get('.toggle').should('not.be.checked')
   })
 })
