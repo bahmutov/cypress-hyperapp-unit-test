@@ -13,7 +13,7 @@ export const mount = (state, actions, view) => {
 
   // add a utility action to get the current state
   if (!actions._getState) {
-    actions._getState = () => state => state
+    actions = Object.assign({}, actions, { _getState: () => state => state })
   }
 
   cy
