@@ -105,6 +105,8 @@ See video of tests running on CI on the project's [Cypress Dashboard][cypress da
 - [entire TodoList component](cypress/integration/todo-list-spec.js)
 - [TodoMVC application E2E test](cypress/integration/todo-app-e2e.js) for [apps/todo.html](apps/todo.html)
 
+Unit tests and E2E tests start looking very much alike. Compare [TodoList unit test](cypress/integration/todo-list-spec.js) and [TodoMVC end-to-end test](cypress/integration/todo-app-e2e.js).
+
 ## Package scripts
 
 * `npm run build` bundles complete applications if you want to run tests against full applications
