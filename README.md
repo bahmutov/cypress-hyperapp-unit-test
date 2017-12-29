@@ -7,6 +7,7 @@
 [![Build status][ci-image] ][ci-url]
 [![semantic-release][semantic-image] ][semantic-url]
 [![js-standard-style][standard-image]][standard-url]
+[![Cypress.io dashboard](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)][cypress dashboard url]
 
 ## TLDR
 
@@ -71,6 +72,8 @@ Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have ful
 * [components](components) different Hyper components for testing
 * [cypress/integration](cypress/integration) example spec files showing  various test situations
 
+See video of tests running on CI on the project's [Cypress Dashboard][cypress dashboard url]
+
 ## Examples
 
 - [simple view function without any actions](cypress/integration/hello-world-spec.js)
@@ -123,3 +126,4 @@ OTHER DEALINGS IN THE SOFTWARE.
 [semantic-url]: https://github.com/semantic-release/semantic-release
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [standard-url]: http://standardjs.com/
+[cypress dashboard url]: https://dashboard.cypress.io/#/projects/zsoa27
