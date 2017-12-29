@@ -13,6 +13,8 @@
 
 * What is this? This package allows you to use [Cypress](https://www.cypress.io/) test runner to unit test your Hyperapp components with zero effort. The component runs in the real browser with full power of Cypress E2E test runner: [live GUI, powerful API, screen recording, historical DOM snapshots, CI support, cross-platform](https://www.cypress.io/features/).
 
+* The line between unit testing a component that renders into a DOM, makes HTTP requests, uses browser API and end-to-end test for a complete web application is becoming very blurry in my opinion. Hope this little bridge between HyperApp and Cypress test runner proves it. See examples below - some of them are testing individual components, some full apps. But the tests look and run _very much alike_.
+
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 6 or above.
