@@ -1,6 +1,12 @@
 import { stripIndent } from 'common-tags'
 
 export const mount = (state, actions, view) => {
+  if (!actions) {
+    // we always want to have an actions object so we
+    // can attach _getState utility function
+    actions = {}
+  }
+
   const html = stripIndent`
     <body>
       <div id="app"></div>
