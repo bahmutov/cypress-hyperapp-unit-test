@@ -107,6 +107,8 @@ See video of tests running on CI on the project's [Cypress Dashboard][cypress da
 
 Unit tests and E2E tests start looking very much alike. Compare [TodoList unit test](cypress/integration/todo-list-spec.js) and [TodoMVC end-to-end test](cypress/integration/todo-app-e2e.js).
 
+- Components and tests for Hyperapp using JSX are their own repository [bahmutov/hyperapp-counter-jsx-example](https://github.com/bahmutov/hyperapp-counter-jsx-example) to keep this repo simple.
+
 ## Package scripts
 
 * `npm run build` bundles complete applications if you want to run tests against full applications
