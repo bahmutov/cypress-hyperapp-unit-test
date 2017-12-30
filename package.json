@@ -27,7 +27,8 @@
   },
   "files": [
     "src/*.js",
-    "!src/*-spec.js"
+    "!src/*-spec.js",
+    "dist"
   ],
   "homepage": "https://github.com/bahmutov/cypress-hyperapp-unit-test#readme",
   "keywords": [
@@ -37,7 +38,8 @@
     "test"
   ],
   "license": "MIT",
-  "main": "src/",
+  "main": "dist",
+  "module": "src",
   "private": false,
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
@@ -62,7 +64,10 @@
     "cy:run": "cypress run",
     "unit": "mocha src/*-spec.js",
     "unused-deps": "dependency-check --unused --no-dev .",
+    "prepublish": "npm run transpile",
     "semantic-release": "semantic-action pre && npm publish && semantic-action post",
+    "transpile": "tsc",
+    "prebuild": "npm run transpile",
     "build": "npm run build:todo-app",
     "build:todo-app": "microbundle -i apps/todo-app.js -o apps/todo-app-bundle.js --format umd --compress false"
   },
@@ -71,6 +76,7 @@
     "generateNotes": "github-post-release"
   },
   "devDependencies": {
+    "@types/node": "8.5.2",
     "ban-sensitive-files": "1.9.2",
     "common-tags": "1.6.0",
     "dependency-check": "2.9.2",
@@ -85,7 +91,8 @@
     "prettier-standard": "8.0.0",
     "semantic-action": "1.1.0",
     "simple-commit-message": "3.3.2",
-    "standard": "10.0.3"
+    "standard": "10.0.3",
+    "typescript": "2.6.2"
   },
   "peerDependencies": {
     "cypress": "1.4.1",

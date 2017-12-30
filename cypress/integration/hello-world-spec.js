@@ -1,5 +1,5 @@
 import { h } from 'hyperapp'
-import { mount } from '../..'
+import { mount } from '../../src'
 
 // view function we are testing - generates "static" content
 // so we don't even need state and actions arguments

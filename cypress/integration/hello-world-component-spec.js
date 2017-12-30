@@ -1,5 +1,5 @@
 import { HelloWorld, HelloYou } from '../../components/hello-world'
-import { mount } from '../..'
+import { mount } from '../../src'
 
 /* eslint-env mocha */
 describe('HelloWorld', () => {

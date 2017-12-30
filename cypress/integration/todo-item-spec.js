@@ -1,6 +1,6 @@
 import { h } from 'hyperapp'
 import { TodoItem } from '../../components/todo-item'
-import { mount } from '../..'
+import { mount } from '../../src'
 
 /* eslint-env mocha */
 describe('TodoItem', () => {

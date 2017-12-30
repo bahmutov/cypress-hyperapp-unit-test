@@ -1,5 +1,5 @@
 import { h } from 'hyperapp'
-import { mount } from '../..'
+import { mount } from '../../src'
 
 const view = (/* state, actions */) =>
   h('div', { class: 'greeting' }, 'edge cases')

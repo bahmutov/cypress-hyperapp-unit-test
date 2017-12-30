@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 import { TodoList } from '../../components/todo-list'
 import { toggle } from '../../actions'
-import { mount } from '../..'
+import { mount } from '../../src'
 
 /* eslint-env mocha */
 describe('TodoList', () => {
