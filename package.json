@@ -76,6 +76,7 @@
   },
   "devDependencies": {
     "@types/node": "8.5.2",
+    "axios": "0.17.1",
     "ban-sensitive-files": "1.9.2",
     "common-tags": "1.6.0",
     "dependency-check": "2.9.2",

@@ -4,3 +4,4 @@ npm-debug.log
 apps/todo-app-bundle.umd.js
 apps/todo-app-bundle.umd.js.map
 dist
+cypress/screenshots/

@@ -12,13 +12,13 @@ const state = {
   todos: [
     {
       id: 1,
-      value: 'Write HyperApp',
-      done: false
+      title: 'Write HyperApp',
+      completed: false
     },
     {
       id: 2,
-      value: 'Test it using Cypress',
-      done: false
+      title: 'Test it using Cypress',
+      completed: false
     }
   ]
 }

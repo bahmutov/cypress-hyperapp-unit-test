@@ -6,17 +6,17 @@ import { mount } from '../../src'
 describe('TodoItem', () => {
   beforeEach(() => {
     const state = {
-      value: 'Try HyperApp',
-      done: false
+      title: 'Try HyperApp',
+      completed: false
     }
     const actions = {
-      toggle: () => state => ({ done: !state.done })
+      toggle: () => state => ({ completed: !state.completed })
     }
     const view = (state, actions) =>
       h(TodoItem, {
         id: 1,
-        value: state.value,
-        done: state.done,
+        title: state.title,
+        completed: state.completed,
         toggle: actions.toggle
       })
     mount(state, actions, view)
@@ -38,15 +38,15 @@ describe('TodoItem', () => {
   it('changes state on click', () => {
     cy.get('.todo').click()
     Cypress.main._getState().should('deep.equal', {
-      done: true,
-      value: 'Try HyperApp'
+      completed: true,
+      title: 'Try HyperApp'
     })
 
     // click again
     cy.get('.todo').click()
     Cypress.main._getState().should('deep.equal', {
-      done: false,
-      value: 'Try HyperApp'
+      completed: false,
+      title: 'Try HyperApp'
     })
   })
 

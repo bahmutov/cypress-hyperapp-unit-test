@@ -8,10 +8,8 @@ export const mount = (state, actions, view) => {
   }
 
   const html = stripIndent`
-    <body>
-      <div id="app"></div>
-      <script src="https://unpkg.com/hyperapp"></script>
-    </body>
+    <div id="app"></div>
+    <script defer src="https://unpkg.com/hyperapp"></script>
   `
   const document = cy.state('document')
   document.write(html)

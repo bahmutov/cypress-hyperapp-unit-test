@@ -13,18 +13,18 @@ describe('TodoList', () => {
     todos: [
       {
         id: 1,
-        value: 'Try HyperApp',
-        done: true
+        title: 'Try HyperApp',
+        completed: true
       },
       {
         id: 2,
-        value: 'Test using Cypress',
-        done: true
+        title: 'Test using Cypress',
+        completed: true
       },
       {
         id: 3,
-        value: 'Profit!!!',
-        done: false
+        title: 'Profit!!!',
+        completed: false
       }
     ]
   }

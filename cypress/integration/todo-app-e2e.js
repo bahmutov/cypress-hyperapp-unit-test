@@ -1,6 +1,18 @@
 /* eslint-env mocha */
 describe('Todo App E2E', () => {
   beforeEach(() => {
+    // optional stubbing of todos from a server
+    // cy.server()
+    // cy
+    //   .route('/todos?_limit=3', [
+    //     {
+    //       id: 100,
+    //       completed: true,
+    //       titke: 'stub server'
+    //     }
+    //   ])
+    //   .as('todos')
+
     // note this is end-to-end test for entire applicsation
     // instead of loading individusl components
     // we are just visiting a page - we assume the
@@ -28,17 +40,8 @@ describe('Todo App E2E', () => {
   })
 
   it('completes first todo', () => {
-    cy
-      .get('.todo')
-      .first()
-      .click()
-      .find('.toggle')
-      .should('be.checked')
+    cy.get('.todo').first().click().find('.toggle').should('be.checked')
     // second item is still not checked
-    cy
-      .get('.todo')
-      .eq(1)
-      .find('.toggle')
-      .should('not.be.checked')
+    cy.get('.todo').eq(1).find('.toggle').should('not.be.checked')
   })
 })

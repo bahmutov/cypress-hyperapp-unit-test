@@ -2,16 +2,16 @@ import { h } from 'hyperapp'
 
 // TodoItem component from
 // https://github.com/hyperapp/hyperapp/blob/master/docs/concepts/components.md
-export const TodoItem = ({ id, value, done, toggle }) => {
-  done = Boolean(done)
+export const TodoItem = ({ id, title, completed, toggle }) => {
+  completed = Boolean(completed)
 
   const onclick = e =>
     toggle({
-      done: !done,
+      completed: !completed,
       id
     })
 
-  const className = `todo ${done ? 'done' : ''}`
+  const className = `todo ${completed ? 'done' : ''}`
 
   return h(
     'li',
@@ -20,9 +20,9 @@ export const TodoItem = ({ id, value, done, toggle }) => {
       h('input', {
         class: 'toggle',
         type: 'checkbox',
-        checked: done
+        checked: completed
       }),
-      h('label', null, value)
+      h('label', null, title)
     ])
   )
 }
