@@ -1,5 +1,43 @@
 import { stripIndent } from 'common-tags'
 
+// having weak reference to styles prevents garbage collection
+// and "losing" styles when the next test starts
+const stylesCache = new Map()
+
+const copyStyles = component => {
+  // need to find same component when component is recompiled
+  // by the JSX preprocessor. Thus have to use something else,
+  // like component name
+  // const hash = component.type.name
+  const hash = component
+
+  let styles = document.querySelectorAll('head style')
+  if (styles.length) {
+    console.log('injected %d styles', styles.length)
+    stylesCache.set(hash, styles)
+  } else {
+    console.log('No styles injected for this component, checking cache')
+    if (stylesCache.has(hash)) {
+      styles = stylesCache.get(hash)
+    } else {
+      styles = null
+    }
+  }
+
+  if (!styles) {
+    return
+  }
+
+  const parentDocument = window.parent.document
+  const projectName = Cypress.config('projectName')
+  const appIframeId = `Your App: '${projectName}'`
+  const appIframe = parentDocument.getElementById(appIframeId)
+  const head = appIframe.contentDocument.querySelector('head')
+  styles.forEach(style => {
+    head.appendChild(style)
+  })
+}
+
 function setXMLHttpRequest (w) {
   // by grabbing the XMLHttpRequest from app's iframe
   // and putting it here - in the test iframe
@@ -21,8 +59,13 @@ export const mount = (state, actions, view) => {
   }
 
   const html = stripIndent`
-    <div id="app"></div>
-    <script defer src="https://unpkg.com/hyperapp"></script>
+    <head>
+      <meta charset="UTF-8">
+    </head>
+    <body>
+      <div id="app"></div>
+      <script defer src="https://unpkg.com/hyperapp"></script>
+    </body>
   `
   const document = cy.state('document')
   document.write(html)
@@ -64,4 +107,11 @@ export const mount = (state, actions, view) => {
     })
 
   cy.get('#app', { log: false }).should('be.visible')
+
+  // picostyle dom is more complex
+  // picostyle inserts a style into the document's head
+  // but then it actually inserts new CSS rules when the view instantiates
+  // so we need to _observe_ test document style and on added
+  // CSS rules copy them
+  copyStyles(view)
 }
