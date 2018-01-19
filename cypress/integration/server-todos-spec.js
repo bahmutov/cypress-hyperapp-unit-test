@@ -5,29 +5,28 @@ import { toggle } from '../../actions'
 
 /* eslint-env mocha */
 describe('Server Todos', () => {
+  const mockTodos = [
+    {
+      id: 1,
+      title: 'Stub server',
+      completed: false
+    },
+    {
+      id: 2,
+      title: 'Test app',
+      completed: false
+    },
+    {
+      id: 3,
+      title: 'Profit!',
+      completed: true
+    }
+  ]
   beforeEach(() => {
-    // why isn't this stubbing the server request
-    // when using direct document injection
-    // but works when loading the entire page?
-    const mockTodos = [
-      {
-        id: 1,
-        title: 'Stub server',
-        completed: false
-      },
-      {
-        id: 2,
-        title: 'Test app',
-        completed: false
-      },
-      {
-        id: 3,
-        title: 'Profit!',
-        completed: true
-      }
-    ]
+    // expect XHR from the component
+    // and respond with mock list
     cy.server()
-    cy.route('/todos?_limit=3', mockTodos)
+    cy.route('/todos?_limit=3', mockTodos).as('todos')
   })
 
   context('Stubbed server', () => {
@@ -49,12 +48,14 @@ describe('Server Todos', () => {
       mount(state, actions, view)
     })
 
-    // skip until can figure out why the server is not stubbed
-    // when writing into document directly.
-    it.skip('shows todos', () => {
+    it('shows todos', () => {
       cy.contains('Todo')
       cy.get('.todo').should('have.length', 3)
       cy.get('.todo').first().contains('Stub server')
+    })
+
+    it('stubs XHR response', () => {
+      cy.wait('@todos').its('response.body').should('deep.equal', mockTodos)
     })
 
     it('can toggle item', () => {

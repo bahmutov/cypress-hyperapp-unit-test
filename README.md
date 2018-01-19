@@ -23,7 +23,7 @@ Requires [Node](https://nodejs.org/en/) version 6 or above.
 npm install --save-dev cypress-hyperapp-unit-test
 ```
 
-also requires peer dependencies
+also requires peer dependencies in your project
 
 ```sh
 npm install cypress hyperapp
@@ -41,22 +41,6 @@ beforeEach(() => {
 })
 // you get fresh mini-app running in each test
 ```
-
-### Extras
-
-* Mounted component's actions object is attached to the global `Cypress.main` variable. The name `main` was picked because that's what Hyperapp uses in its docs `const main = app(state, ...)`
-* The `mount` function adds an action `_getState` to the `actions` object, if there is not one already present. This allows you to get the current state of the component for inspection.
-
-```js
-Cypress.main.setName('Joe')
-Cypress.main._getState().its('name').should('equal', 'Joe')
-Cypress.main.setAge(37)
-Cypress.main._getState().should('deep.equal', {
-  name: 'Joe',
-  age: 37
-})
-```
-Note: the `Cypress.main` wraps returned Hyperapp actions with `cy.then` to queue the calls through the Cypress command queue. Thus the above code looks synchronous, but in reality there could be DOM updates, network calls, etc, and it still works.
 
 ## Use
 
@@ -87,6 +71,19 @@ Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have ful
 
 ![Hello World shows greeting](images/hello-world.png)
 
+## Examples
+
+- [simple view function without any actions](cypress/integration/hello-world-spec.js)
+- [components without and with actions](cypress/integration/hello-world-component-spec.js)
+- [single TodoItem component](cypress/integration/todo-item-spec.js)
+- [entire TodoList component](cypress/integration/todo-list-spec.js)
+- [server XHR stubbing](cypress/integration/server-todos-spec.js)
+- [TodoMVC application E2E test](cypress/integration/todo-app-e2e.js) for [apps/todo.html](apps/todo.html)
+
+Unit tests and E2E tests start looking very much alike. Compare [TodoList unit test](cypress/integration/todo-list-spec.js) and [TodoMVC end-to-end test](cypress/integration/todo-app-e2e.js).
+
+- Components and tests for Hyperapp using JSX are their own repository [bahmutov/hyperapp-counter-jsx-example](https://github.com/bahmutov/hyperapp-counter-jsx-example) to keep this repo simple.
+
 ## Repo organization
 
 * [src/index.js](src/index.js) the main file implementing `mount`
@@ -97,17 +94,22 @@ Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have ful
 
 See video of tests running on CI on the project's [Cypress Dashboard][cypress dashboard url]
 
-## Examples
+## API Extras
 
-- [simple view function without any actions](cypress/integration/hello-world-spec.js)
-- [components without and with actions](cypress/integration/hello-world-component-spec.js)
-- [single TodoItem component](cypress/integration/todo-item-spec.js)
-- [entire TodoList component](cypress/integration/todo-list-spec.js)
-- [TodoMVC application E2E test](cypress/integration/todo-app-e2e.js) for [apps/todo.html](apps/todo.html)
+* Mounted component's actions object is attached to the global `Cypress.main` variable. The name `main` was picked because that's what Hyperapp uses in its docs `const main = app(state, ...)`
+* The `mount` function adds an action `_getState` to the `actions` object, if there is not one already present. This allows you to get the current state of the component for inspection.
 
-Unit tests and E2E tests start looking very much alike. Compare [TodoList unit test](cypress/integration/todo-list-spec.js) and [TodoMVC end-to-end test](cypress/integration/todo-app-e2e.js).
+```js
+Cypress.main.setName('Joe')
+Cypress.main._getState().its('name').should('equal', 'Joe')
+Cypress.main.setAge(37)
+Cypress.main._getState().should('deep.equal', {
+  name: 'Joe',
+  age: 37
+})
+```
+Note: the `Cypress.main` wraps returned Hyperapp actions with `cy.then` to queue the calls through the Cypress command queue. Thus the above code looks synchronous, but in reality there could be DOM updates, network calls, etc, and it still works.
 
-- Components and tests for Hyperapp using JSX are their own repository [bahmutov/hyperapp-counter-jsx-example](https://github.com/bahmutov/hyperapp-counter-jsx-example) to keep this repo simple.
 
 ## Package scripts
 

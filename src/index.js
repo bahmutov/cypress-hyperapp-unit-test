@@ -1,5 +1,18 @@
 import { stripIndent } from 'common-tags'
 
+function setXMLHttpRequest (w) {
+  // by grabbing the XMLHttpRequest from app's iframe
+  // and putting it here - in the test iframe
+  // we suddenly get spying and stubbing 😁
+  window.XMLHttpRequest = w.XMLHttpRequest
+  return w
+}
+
+function setAlert (w) {
+  window.alert = w.alert
+  return w
+}
+
 export const mount = (state, actions, view) => {
   if (!actions) {
     // we always want to have an actions object so we
@@ -17,11 +30,14 @@ export const mount = (state, actions, view) => {
 
   // add a utility action to get the current state
   if (!actions._getState) {
-    actions = Object.assign({}, actions, { _getState: () => state => state })
+    const _getState = () => state => state
+    actions = Object.assign({}, actions, { _getState })
   }
 
   cy
     .window({ log: false })
+    .then(setXMLHttpRequest)
+    .then(setAlert)
     .its('hyperapp.app')
     .then(app => {
       const el = document.getElementById('app')
