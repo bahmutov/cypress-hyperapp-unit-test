@@ -17,7 +17,7 @@ describe('Todo App E2E', () => {
     // instead of loading individusl components
     // we are just visiting a page - we assume the
     // application has been bundled, loaded and initialized
-    cy.visit('apps/todo.html')
+    cy.visit('dist/todo/todo.html')
   })
 
   it('loads Todo app', () => {
@@ -40,8 +40,17 @@ describe('Todo App E2E', () => {
   })
 
   it('completes first todo', () => {
-    cy.get('.todo').first().click().find('.toggle').should('be.checked')
+    cy
+      .get('.todo')
+      .first()
+      .click()
+      .find('.toggle')
+      .should('be.checked')
     // second item is still not checked
-    cy.get('.todo').eq(1).find('.toggle').should('not.be.checked')
+    cy
+      .get('.todo')
+      .eq(1)
+      .find('.toggle')
+      .should('not.be.checked')
   })
 })

@@ -1,8 +1,8 @@
-// import { h, app } from 'hyperapp'
+import { h, app } from 'hyperapp'
 import { TodoList } from '../components/todo-list'
 import { toggle } from '../actions'
 
-const { h, app } = window.hyperapp
+// const { h, app } = window.hyperapp
 
 // notice how much this application looks like TodoList "unit" test
 // in cypress/integration/todo-list-spec.js
