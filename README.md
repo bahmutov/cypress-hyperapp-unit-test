@@ -52,8 +52,7 @@ In your Cypress spec files (the example below is from file [cypress/integration/
 import { mount } from 'cypress-hyperapp-unit-test'
 import { h } from 'hyperapp'
 // view function we are testing
-const view = (state, actions) =>
-  h('div', { class: 'greeting' }, 'Hello, World')
+const view = (state, actions) => h('div', { class: 'greeting' }, 'Hello, World')
 describe('Hello World', () => {
   beforeEach(() => {
     const state = {}
@@ -75,16 +74,16 @@ Start Cypress using `$(npm bin)/cypress open` and execute the spec. You have ful
 
 ## Examples
 
-- [simple view function without any actions](cypress/integration/hello-world-spec.js)
-- [components without and with actions](cypress/integration/hello-world-component-spec.js)
-- [single TodoItem component](cypress/integration/todo-item-spec.js)
-- [entire TodoList component](cypress/integration/todo-list-spec.js)
-- [server XHR stubbing](cypress/integration/server-todos-spec.js)
-- [TodoMVC application E2E test](cypress/integration/todo-app-e2e.js) for [apps/todo.html](apps/todo.html)
+* [simple view function without any actions](cypress/integration/hello-world-spec.js)
+* [components without and with actions](cypress/integration/hello-world-component-spec.js)
+* [single TodoItem component](cypress/integration/todo-item-spec.js)
+* [entire TodoList component](cypress/integration/todo-list-spec.js)
+* [server XHR stubbing](cypress/integration/server-todos-spec.js)
+* [TodoMVC application E2E test](cypress/integration/todo-app-e2e.js) for [apps/todo.html](apps/todo.html)
 
 Unit tests and E2E tests start looking very much alike. Compare [TodoList unit test](cypress/integration/todo-list-spec.js) and [TodoMVC end-to-end test](cypress/integration/todo-app-e2e.js).
 
-- Components and tests for Hyperapp using JSX are their own repository [bahmutov/hyperapp-counter-jsx-example](https://github.com/bahmutov/hyperapp-counter-jsx-example) to keep this repo simple.
+* Components and tests for Hyperapp using JSX are their own repository [bahmutov/hyperapp-counter-jsx-example](https://github.com/bahmutov/hyperapp-counter-jsx-example) to keep this repo simple.
 
 ## Repo organization
 
@@ -103,15 +102,18 @@ See video of tests running on CI on the project's [Cypress Dashboard][cypress da
 
 ```js
 Cypress.main.setName('Joe')
-Cypress.main._getState().its('name').should('equal', 'Joe')
+Cypress.main
+  ._getState()
+  .its('name')
+  .should('equal', 'Joe')
 Cypress.main.setAge(37)
 Cypress.main._getState().should('deep.equal', {
   name: 'Joe',
   age: 37
 })
 ```
-Note: the `Cypress.main` wraps returned Hyperapp actions with `cy.then` to queue the calls through the Cypress command queue. Thus the above code looks synchronous, but in reality there could be DOM updates, network calls, etc, and it still works.
 
+Note: the `Cypress.main` wraps returned Hyperapp actions with `cy.then` to queue the calls through the Cypress command queue. Thus the above code looks synchronous, but in reality there could be DOM updates, network calls, etc, and it still works.
 
 ## Package scripts
 
