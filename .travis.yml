@@ -15,7 +15,7 @@ script:
   # build full apps
   - npm run build
   # test everything
-  - npm test -- --record
+  - travis_retry npm test -- --record
 after_success:
   - npm run semantic-release || true
 branches:
