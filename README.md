@@ -1,5 +1,7 @@
 # cypress-hyperapp-unit-test
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bahmutov/cypress-hyperapp-unit-test.svg)](https://greenkeeper.io/)
+
 > Unit test [Hyperapp](https://hyperapp.js.org/) components using [Cypress](https://www.cypress.io/)
 
 [![NPM][npm-icon] ][npm-url]
