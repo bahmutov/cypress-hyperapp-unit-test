@@ -17,7 +17,7 @@ describe('Todo App E2E', () => {
     // instead of loading individusl components
     // we are just visiting a page - we assume the
     // application has been bundled, loaded and initialized
-    cy.visit('dist/todo/todo.html')
+    cy.visit('bundles/todo/todo.html')
   })
 
   it('loads Todo app', () => {

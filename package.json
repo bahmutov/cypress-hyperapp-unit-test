@@ -57,7 +57,8 @@
     "transpile": "tsc",
     "prebuild": "npm run transpile",
     "build": "npm run build:todo-app",
-    "build:todo-app": "parcel build apps/todo.html -d dist/todo --public-url ./"
+    "build:todo-app":
+      "parcel build apps/todo.html -d bundles/todo --public-url ./"
   },
   "release": {
     "analyzeCommits": "simple-commit-message",
