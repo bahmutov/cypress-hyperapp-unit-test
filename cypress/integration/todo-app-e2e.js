@@ -1,14 +1,15 @@
 /* eslint-env mocha */
 describe('Todo App E2E', () => {
   beforeEach(() => {
-    // optional stubbing of todos from a server
+    // optional stubbing of Todos from a server
+    // can be done like this
     // cy.server()
     // cy
     //   .route('/todos?_limit=3', [
     //     {
     //       id: 100,
     //       completed: true,
-    //       titke: 'stub server'
+    //       title: 'stub server'
     //     }
     //   ])
     //   .as('todos')
