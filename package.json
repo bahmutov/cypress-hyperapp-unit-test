@@ -48,6 +48,8 @@
     "size":
       "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "cypress run",
+    "pretest:ci": "npm run build",
+    "test:ci": "npm run test",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "unit": "mocha src/*-spec.js",
