@@ -12,10 +12,8 @@ node_js:
 before_install:
   - npm install cypress hyperapp
 script:
-  # build full apps
-  - npm run build
-  # test everything
-  - travis_retry npm test -- --record
+  # builds and tests everything
+  - travis_retry npm run test:ci -- --record
 after_success:
   - npm run semantic-release || true
 branches:
