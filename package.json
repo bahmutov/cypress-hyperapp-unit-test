@@ -81,7 +81,7 @@
     "mocha": "5.0.1",
     "nsp": "3.2.1",
     "parcel-bundler": "1.6.2",
-    "picostyle": "0.2.1",
+    "picostyle": "1.0.1",
     "pre-git": "3.17.0",
     "prettier-standard": "8.0.0",
     "semantic-action": "1.1.6",
