@@ -86,7 +86,7 @@
     "prettier-standard": "8.0.0",
     "semantic-action": "1.1.6",
     "simple-commit-message": "4.0.3",
-    "standard": "11.0.0",
+    "standard": "11.0.1",
     "typescript": "2.7.2"
   },
   "standard": {
