@@ -2,5 +2,6 @@
   "viewportHeight": 200,
   "viewportWidth": 300,
   "videoRecording": false,
-  "projectId": "zsoa27"
+  "projectId": "zsoa27",
+  "defaultCommandTimeout": 4000
 }

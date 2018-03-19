@@ -58,13 +58,14 @@ export const mount = (state, actions, view) => {
     actions = {}
   }
 
+  // TODO stop hard coding Hyperapp version, grab from the "node_modules"
   const html = stripIndent`
     <head>
       <meta charset="UTF-8">
     </head>
     <body>
       <div id="app"></div>
-      <script defer src="https://unpkg.com/hyperapp"></script>
+      <script src="https://unpkg.com/hyperapp@1.2.0/dist/hyperapp.js"></script>
     </body>
   `
   const document = cy.state('document')
@@ -77,6 +78,13 @@ export const mount = (state, actions, view) => {
     actions = Object.assign({}, actions, { _getState })
   }
 
+  // force waiting for window.hyperapp to exist before anything else happens
+  cy
+    .window({ log: false })
+    .its('hyperapp')
+    .should('be.an', 'object')
+
+  // now can attach our handlers
   cy
     .window({ log: false })
     .then(setXMLHttpRequest)
