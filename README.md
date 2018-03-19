@@ -10,6 +10,10 @@
 [![semantic-release][semantic-image] ][semantic-url]
 [![js-standard-style][standard-image]][standard-url]
 [![Cypress.io dashboard](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)][cypress dashboard url]
+[![renovate-app badge][renovate-badge]][renovate-app]
+
+[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
+[renovate-app]: https://renovateapp.com/
 
 ## TLDR
 
