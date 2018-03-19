@@ -7,7 +7,11 @@
   "config": {
     "pre-git": {
       "commit-msg": "simple",
-      "pre-commit": ["npm test", "git add src/*.js", "npm run ban"],
+      "pre-commit": [
+        "npm test",
+        "git add src/*.js",
+        "npm run ban"
+      ],
       "pre-push": [
         "npm run secure",
         "npm run license",
@@ -21,9 +25,18 @@
   "engines": {
     "node": ">=6"
   },
-  "files": ["src/*.js", "!src/*-spec.js", "dist"],
+  "files": [
+    "src/*.js",
+    "!src/*-spec.js",
+    "dist"
+  ],
   "homepage": "https://github.com/bahmutov/cypress-hyperapp-unit-test#readme",
-  "keywords": ["cypress", "cypress-io", "hyperapp", "test"],
+  "keywords": [
+    "cypress",
+    "cypress-io",
+    "hyperapp",
+    "test"
+  ],
   "license": "MIT",
   "main": "dist",
   "module": "src",
@@ -45,8 +58,7 @@
     "pretest": "npm run lint",
     "pretty": "prettier-standard 'src/*.js'",
     "secure": "nsp check",
-    "size":
-      "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "cypress run",
     "pretest:ci": "npm run build",
     "test:ci": "npm run test",
@@ -54,13 +66,11 @@
     "cy:run": "cypress run",
     "unit": "mocha src/*-spec.js",
     "unused-deps": "dependency-check --unused --no-dev .",
-    "semantic-release":
-      "semantic-action pre && npm run transpile && npm publish && semantic-action post",
+    "semantic-release": "semantic-action pre && npm run transpile && npm publish && semantic-action post",
     "transpile": "tsc",
     "prebuild": "npm run transpile",
     "build": "npm run build:todo-app",
-    "build:todo-app":
-      "parcel build apps/todo.html -d bundles/todo --public-url ./"
+    "build:todo-app": "parcel build apps/todo.html -d bundles/todo --public-url ./"
   },
   "release": {
     "analyzeCommits": "simple-commit-message",
@@ -90,6 +100,10 @@
     "typescript": "2.7.2"
   },
   "standard": {
-    "globals": ["Cypress", "cy", "expect"]
+    "globals": [
+      "Cypress",
+      "cy",
+      "expect"
+    ]
   }
 }
