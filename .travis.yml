@@ -14,7 +14,7 @@ before_install:
 script:
   # builds and tests everything
   - npm run build
-  - npm run test:ci -- --record
+  - npm run test:ci:record
 after_success:
   - npm run semantic-release || true
 branches:
