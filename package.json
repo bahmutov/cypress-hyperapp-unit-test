@@ -67,7 +67,7 @@
     "generateNotes": "github-post-release"
   },
   "devDependencies": {
-    "@types/node": "9.4.6",
+    "@types/node": "9.4.7",
     "axios": "0.18.0",
     "ban-sensitive-files": "1.9.2",
     "common-tags": "1.7.2",
