@@ -78,7 +78,7 @@
     "github-post-release": "1.13.1",
     "hyperapp": "1.1.2",
     "license-checker": "16.0.0",
-    "mocha": "5.0.1",
+    "mocha": "5.0.4",
     "nsp": "3.2.1",
     "parcel-bundler": "1.6.2",
     "picostyle": "0.2.1",
