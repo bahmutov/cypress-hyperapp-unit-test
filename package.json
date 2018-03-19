@@ -66,7 +66,7 @@
     "cy:run": "cypress run",
     "unit": "mocha src/*-spec.js",
     "unused-deps": "dependency-check --unused --no-dev .",
-    "semantic-release": "semantic-action pre && npm run transpile && npm publish && semantic-action post",
+    "semantic-release": "semantic-release",
     "transpile": "tsc",
     "prebuild": "npm run transpile",
     "build": "npm run build:todo-app",
@@ -97,7 +97,8 @@
     "semantic-action": "1.1.6",
     "simple-commit-message": "4.0.3",
     "standard": "11.0.1",
-    "typescript": "2.7.2"
+    "typescript": "2.7.2",
+    "semantic-release": "^15.1.2"
   },
   "standard": {
     "globals": [
