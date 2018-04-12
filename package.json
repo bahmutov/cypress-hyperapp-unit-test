@@ -86,7 +86,7 @@
     "simple-commit-message": "4.0.3",
     "standard": "11.0.1",
     "typescript": "2.8.1",
-    "semantic-release": "15.1.6"
+    "semantic-release": "15.1.7"
   },
   "standard": {
     "globals": ["Cypress", "cy", "expect"]
