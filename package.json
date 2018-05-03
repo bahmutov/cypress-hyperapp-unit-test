@@ -67,7 +67,7 @@
     "analyzeCommits": "simple-commit-message"
   },
   "devDependencies": {
-    "@types/node": "9.6.9",
+    "@types/node": "9.6.10",
     "axios": "0.18.0",
     "ban-sensitive-files": "1.9.2",
     "common-tags": "1.7.2",
