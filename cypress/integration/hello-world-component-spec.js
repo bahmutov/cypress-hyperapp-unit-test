@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { HelloWorld, HelloYou } from '../../components/hello-world'
 import { mount } from '../../src'
 

@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 /* eslint-env mocha */
 describe('Todo App E2E', () => {
   beforeEach(() => {
@@ -41,17 +43,8 @@ describe('Todo App E2E', () => {
   })
 
   it('completes first todo', () => {
-    cy
-      .get('.todo')
-      .first()
-      .click()
-      .find('.toggle')
-      .should('be.checked')
+    cy.get('.todo').first().click().find('.toggle').should('be.checked')
     // second item is still not checked
-    cy
-      .get('.todo')
-      .eq(1)
-      .find('.toggle')
-      .should('not.be.checked')
+    cy.get('.todo').eq(1).find('.toggle').should('not.be.checked')
   })
 })

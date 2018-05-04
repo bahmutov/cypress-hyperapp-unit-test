@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { h } from 'hyperapp'
 import { mount } from '../../src'
 

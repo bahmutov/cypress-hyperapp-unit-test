@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import { h } from 'hyperapp'
 import { TodoList } from '../../components/todo-list'
 import { toggle } from '../../actions'
