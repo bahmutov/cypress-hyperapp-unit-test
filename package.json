@@ -90,7 +90,7 @@
     "license-checker": "18.1.0",
     "mocha": "5.1.1",
     "nsp": "3.2.1",
-    "parcel-bundler": "1.8.0",
+    "parcel-bundler": "1.8.1",
     "picostyle": "0.2.1",
     "pre-git": "3.17.1",
     "prettier-standard": "8.0.1",
