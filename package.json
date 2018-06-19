@@ -97,7 +97,7 @@
     "simple-commit-message": "4.0.3",
     "standard": "11.0.1",
     "typescript": "2.9.2",
-    "semantic-release": "15.5.5"
+    "semantic-release": "15.6.0"
   },
   "standard": {
     "globals": [
