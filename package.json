@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@types/node": "9.6.49",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "ban-sensitive-files": "1.9.6",
     "common-tags": "1.8.0",
     "cypress": "3.8.2",
