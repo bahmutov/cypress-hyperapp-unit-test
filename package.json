@@ -94,7 +94,7 @@
     "picostyle": "2.2.0",
     "pre-git": "3.17.1",
     "prettier-standard": "8.0.1",
-    "simple-commit-message": "4.0.7",
+    "simple-commit-message": "4.1.1",
     "standard": "12.0.1",
     "typescript": "3.8.3",
     "semantic-release": "15.14.0"
